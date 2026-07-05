@@ -13,7 +13,7 @@ app.get("/", (_, res) => {
 
 app.get("/users", async (_, res, next) => {
   try {
-    const user = await prisma.user.findMany({ where: { id: 3 } });
+    const user = await prisma.user.findMany();
     res.json(user);
   } catch (error) {
     next(error);

@@ -14,10 +14,9 @@ datasource db {
 
 model User {
   id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
+  name          String
   password      String?
-  emailVerified DateTime? @map("email_verified")
+  emailVerified DateTime? @unique @map("email_verified")
   image         String?
   avatarUrl     String?
   bio           String?
@@ -74,4 +73,3 @@ model VerificationToken {
   @@unique([identifier, token])
   @@map("verification_tokens")
 }
-
