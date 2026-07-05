@@ -7,4 +7,8 @@
 *
 * 🟢 You can import this file directly.
 */
-export {};
+export const Role = {
+    student: 'student',
+    instructor: 'instructor',
+    admin: 'admin'
+};
