@@ -13,18 +13,29 @@ datasource db {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String         @id @default(cuid())
   name          String
   password      String?
-  emailVerified DateTime? @unique @map("email_verified")
+  email         String         @unique
+  emailVerified DateTime?      @unique @map("email_verified")
   image         String?
-  avatarUrl     String?
+  avatarUrl     String?        @map("avatar_url")
   bio           String?
-  createAt      DateTime  @default(now())
-  updatedAt     DateTime
-  role          Role      @default(student)
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  role          Role           @default(student)
   accounts      Account[]
   sessions      Session[]
+  courses       Course[]
+  enrollments   Enrollment[]
+  payments      Payment[]
+  reviews       Review[]
+  forumPosts    ForumPosts[]
+  comments      Comment[]
+  chatMessages  ChatMessage[]
+  notifications Notification[]
+  files         File[]
+  auditLogs     AuditLog[]
 
   @@map("users")
 }
@@ -48,8 +59,7 @@ model Account {
   scope             String?
   id_token          String? @db.Text
   session_state     String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
   @@map("accounts")
@@ -72,4 +82,253 @@ model VerificationToken {
 
   @@unique([identifier, token])
   @@map("verification_tokens")
+}
+
+model Category {
+  id      String   @id @default(cuid())
+  name    String   @unique
+  slug    String   @unique
+  courses Course[]
+
+  @@map("categories")
+}
+
+model Tag {
+  id         String      @id @default(cuid())
+  name       String      @unique
+  courseTags CourseTag[]
+
+  @@map("tags")
+}
+
+model CourseTag {
+  courseId String @map("course_id")
+  tagId    String @map("tag_id")
+  course   Course @relation(fields: [courseId], references: [id])
+  tag      Tag    @relation(fields: [tagId], references: [id])
+
+  @@id([courseId, tagId])
+  @@map("course_tags")
+}
+
+model Course {
+  id           String        @id @default(cuid())
+  title        String
+  slug         String        @unique
+  description  String        @db.Text
+  thumbnail    String?
+  price        Decimal       @default(0) @db.Decimal(10, 2)
+  level        Level         @default(beginner)
+  published    Boolean       @default(false)
+  instructorId String        @map("instructor_id")
+  instructor   User          @relation(fields: [instructorId], references: [id])
+  categoryId   String        @map("category_id")
+  category     Category      @relation(fields: [categoryId], references: [id])
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  lessons      Lesson[]
+  enrollments  Enrollment[]
+  payments     Payment[]
+  reviews      Review[]
+  forumPosts   ForumPosts[]
+  chatMessages ChatMessage[]
+  courseTags   CourseTag[]
+
+  @@map("courses")
+}
+
+enum Level {
+  beginner
+  intermediate
+  advanced
+}
+
+model Lesson {
+  id               String           @id @default(cuid())
+  title            String
+  order            Int
+  videoUrl         String?          @map("video_url")
+  content          String?          @db.Text
+  durationSec      Int?             @map("duration_sec")
+  isFreePreview    Boolean          @default(false) @map("is_free_preview")
+  courseId         String           @map("course_id")
+  course           Course           @relation(fields: [courseId], references: [id])
+  lessonProgresses LessonProgress[]
+  comments         Comment[]
+
+  @@unique([courseId, order])
+  @@map("lessons")
+}
+
+model Enrollment {
+  id               String           @id @default(cuid())
+  enrolledAt       DateTime         @default(now())
+  userId           String           @map("user_id")
+  user             User             @relation(fields: [userId], references: [id])
+  courseId         String           @map("course_id")
+  course           Course           @relation(fields: [courseId], references: [id])
+  lessonProgresses LessonProgress[]
+
+  @@unique([userId, courseId])
+  @@map("enrollments")
+}
+
+model LessonProgress {
+  id              String     @id @default(cuid())
+  completed       Boolean
+  lastPositionSec Int        @map("last_position_sec")
+  updatedAt       DateTime   @updatedAt
+  enrollmentId    String     @map("enrollment_id")
+  enrollment      Enrollment @relation(fields: [enrollmentId], references: [id])
+  lessonId        String     @map("lesson_id")
+  lesson          Lesson     @relation(fields: [lessonId], references: [id])
+
+  @@map("lesson_progress")
+}
+
+model Payment {
+  id              String   @id @default(cuid())
+  amount          Decimal  @default(0) @db.Decimal(10, 2)
+  updatedAt       DateTime @updatedAt
+  userId          String   @map("user_id")
+  user            User     @relation(fields: [userId], references: [id])
+  courseId        String   @map("course_id")
+  course          Course   @relation(fields: [courseId], references: [id])
+  couponId        String?  @map("coupon_id")
+  coupon          Coupon?  @relation(fields: [couponId], references: [id])
+  status          Status
+  stripeSessionId String?  @map("stripe_session_id")
+  createdAt       DateTime @default(now())
+
+  @@map("payments")
+}
+
+enum Status {
+  pending
+  succeeded
+  failed
+  refunded
+}
+
+model Coupon {
+  id         String    @id @default(cuid())
+  code       String    @unique
+  percentOff Int?      @map("percent_off")
+  amountOff  Decimal?  @default(0) @map("amount_off") @db.Decimal(10, 2)
+  expiresAt  DateTime?
+  maxUses    Int?      @map("max_uses")
+  usedCount  Int       @default(0) @map("used_count")
+  payments   Payment[]
+
+  @@map("coupons")
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  rating    Int
+  comment   String?  @db.Text
+  userId    String   @map("user_id")
+  user      User     @relation(fields: [userId], references: [id])
+  courseId  String   @map("course_id")
+  course    Course   @relation(fields: [courseId], references: [id])
+  createdAt DateTime @default(now())
+
+  @@unique([userId, courseId])
+  @@map("reviews")
+}
+
+model ForumPosts {
+  id        String    @id @default(cuid())
+  title     String
+  content   String    @db.Text
+  userId    String    @map("user_id")
+  user      User      @relation(fields: [userId], references: [id])
+  courseId  String?   @map("course_id")
+  course    Course?   @relation(fields: [courseId], references: [id])
+  createdAt DateTime  @default(now())
+  comments  Comment[]
+
+  @@map("forum_posts")
+}
+
+model Comment {
+  id        String      @id @default(cuid())
+  content   String      @db.Text
+  userId    String      @map("user_id")
+  user      User        @relation(fields: [userId], references: [id])
+  postId    String?     @map("post_id")
+  post      ForumPosts? @relation(fields: [postId], references: [id])
+  lessonId  String?     @map("lesson_id")
+  lesson    Lesson?     @relation(fields: [lessonId], references: [id])
+  parentId  String?     @map("parent_id")
+  parent    Comment?    @relation("CommentReplies", fields: [parentId], references: [id])
+  comments  Comment[]   @relation("CommentReplies")
+  createdAt DateTime    @default(now())
+
+  @@map("comments")
+}
+
+model ChatMessage {
+  id        String   @id @default(cuid())
+  content   String   @db.Text
+  courseId  String   @map("course_id")
+  course    Course   @relation(fields: [courseId], references: [id])
+  userId    String   @map("user_id")
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+
+  @@map("chat_messages")
+}
+
+model Notification {
+  id        String           @id @default(cuid())
+  userId    String           @map("user_id")
+  user      User             @relation(fields: [userId], references: [id])
+  type      NotificationType
+  title     String
+  body      String
+  link      String?
+  isRead    Boolean          @default(false)
+  createdAt DateTime         @default(now())
+
+  @@map("notifications")
+}
+
+enum NotificationType {
+  enrollment
+  payment
+  comment_reply
+  new_lesson
+  system
+}
+
+model File {
+  id        String   @id @default(cuid())
+  userId    String   @map("user_id")
+  user      User     @relation(fields: [userId], references: [id])
+  url       String
+  type      FileType
+  sizeBytes Int      @map("size_bytes")
+  createdAt DateTime @default(now())
+
+  @@map("files")
+}
+
+enum FileType {
+  avatar
+  thumbnail
+  video
+  attachment
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  userId     String   @map("user_id")
+  user       User     @relation(fields: [userId], references: [id])
+  action     String
+  targetType String   @map("target_type")
+  targetId   String   @map("target_id")
+  createdAt  DateTime @default(now())
+
+  @@map("audit_logs")
 }
