@@ -1,9 +1,9 @@
+import { auth } from "@/lib/auth";
 import { NextResponse } from "next/server";
-import { auth } from "@/auth";
 
 export const proxy = auth((req) => {
   console.log(req.auth);
-  
+
   // const isLogin = !!req.auth;
   // const isAuthPage =
   //   req.nextUrl.pathname.startsWith("/sign-in") ||

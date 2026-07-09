@@ -29,7 +29,7 @@ export declare const ModelName: {
     readonly User: "User";
     readonly Account: "Account";
     readonly Session: "Session";
-    readonly VerificationToken: "VerificationToken";
+    readonly Verification: "Verification";
     readonly Category: "Category";
     readonly Tag: "Tag";
     readonly CourseTag: "CourseTag";
@@ -72,31 +72,39 @@ export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof User
 export declare const AccountScalarFieldEnum: {
     readonly id: "id";
     readonly userId: "userId";
-    readonly type: "type";
-    readonly provider: "provider";
-    readonly providerAccountId: "providerAccountId";
-    readonly refresh_token: "refresh_token";
-    readonly access_token: "access_token";
-    readonly expires_at: "expires_at";
-    readonly token_type: "token_type";
+    readonly accountId: "accountId";
+    readonly providerId: "providerId";
+    readonly accessToken: "accessToken";
+    readonly refreshToken: "refreshToken";
+    readonly accessTokenExpiresAt: "accessTokenExpiresAt";
+    readonly refreshTokenExpiresAt: "refreshTokenExpiresAt";
     readonly scope: "scope";
-    readonly id_token: "id_token";
-    readonly session_state: "session_state";
+    readonly idToken: "idToken";
+    readonly password: "password";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
 };
 export type AccountScalarFieldEnum = (typeof AccountScalarFieldEnum)[keyof typeof AccountScalarFieldEnum];
 export declare const SessionScalarFieldEnum: {
     readonly id: "id";
-    readonly sessionToken: "sessionToken";
     readonly userId: "userId";
-    readonly expires: "expires";
+    readonly token: "token";
+    readonly expiresAt: "expiresAt";
+    readonly ipAddress: "ipAddress";
+    readonly userAgent: "userAgent";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
 };
 export type SessionScalarFieldEnum = (typeof SessionScalarFieldEnum)[keyof typeof SessionScalarFieldEnum];
-export declare const VerificationTokenScalarFieldEnum: {
+export declare const VerificationScalarFieldEnum: {
+    readonly id: "id";
     readonly identifier: "identifier";
-    readonly token: "token";
-    readonly expires: "expires";
+    readonly value: "value";
+    readonly expiresAt: "expiresAt";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
 };
-export type VerificationTokenScalarFieldEnum = (typeof VerificationTokenScalarFieldEnum)[keyof typeof VerificationTokenScalarFieldEnum];
+export type VerificationScalarFieldEnum = (typeof VerificationScalarFieldEnum)[keyof typeof VerificationScalarFieldEnum];
 export declare const CategoryScalarFieldEnum: {
     readonly id: "id";
     readonly name: "name";

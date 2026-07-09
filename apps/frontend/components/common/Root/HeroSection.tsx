@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Prisma } from "@skillhub/database";
 
-type HeroCourse = Prisma.CourseGetPayload<Prisma.CourseDefaultArgs>;;
+type HeroCourse = Prisma.CourseGetPayload<Prisma.CourseDefaultArgs>;
 
 interface HeroSectionProps {
   coursesList: HeroCourse[];
@@ -33,12 +33,13 @@ function HeroSection({ coursesList }: HeroSectionProps) {
             chiến — học theo tốc độ của riêng bạn, mọi lúc mọi nơi.
           </p>
           <div className="mt-8">
-            <Button
-              size="xl"
-              className="bg-orange-500 hover:bg-orange-600 font-bold text-[20px]"
+            <Link
+              href="/courses"
+              className="bg-orange-500 font-bold text-[20px] text-white px-4.5 py-3 rounded-xl transition-all duration-200 
+                  hover:shadow-md hover:bg-orange-600 hover:text-slate-900 active:scale-[98]"
             >
-              <Link href="/courses">Khám phá khóa học</Link>
-            </Button>
+              Khám phá khóa học
+            </Link>
           </div>
 
           <div className="mt-12 flex gap-10">
@@ -67,7 +68,7 @@ function HeroSection({ coursesList }: HeroSectionProps) {
               <h3 className="mt-4 font-semibold text-slate-900">
                 {course.title}
               </h3>
-              <p className="mt-1 text-sm text-slate-500">⭐ 4.5 · $49.99</p>
+              <p className="mt-1 text-sm text-slate-700">⭐5 · ${Number(course.price)}</p>
             </div>
           ))}
         </div>

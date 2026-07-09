@@ -151,14 +151,14 @@ export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out
         omit: OmitOpts;
     }>;
     /**
-     * `prisma.verificationToken`: Exposes CRUD operations for the **VerificationToken** model.
+     * `prisma.verification`: Exposes CRUD operations for the **Verification** model.
       * Example usage:
       * ```ts
-      * // Fetch zero or more VerificationTokens
-      * const verificationTokens = await prisma.verificationToken.findMany()
+      * // Fetch zero or more Verifications
+      * const verifications = await prisma.verification.findMany()
       * ```
       */
-    get verificationToken(): Prisma.VerificationTokenDelegate<ExtArgs, {
+    get verification(): Prisma.VerificationDelegate<ExtArgs, {
         omit: OmitOpts;
     }>;
     /**

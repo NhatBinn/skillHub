@@ -70,7 +70,7 @@ export const ModelName = {
     User: 'User',
     Account: 'Account',
     Session: 'Session',
-    VerificationToken: 'VerificationToken',
+    Verification: 'Verification',
     Category: 'Category',
     Tag: 'Tag',
     CourseTag: 'CourseTag',
@@ -113,27 +113,35 @@ export const UserScalarFieldEnum = {
 export const AccountScalarFieldEnum = {
     id: 'id',
     userId: 'userId',
-    type: 'type',
-    provider: 'provider',
-    providerAccountId: 'providerAccountId',
-    refresh_token: 'refresh_token',
-    access_token: 'access_token',
-    expires_at: 'expires_at',
-    token_type: 'token_type',
+    accountId: 'accountId',
+    providerId: 'providerId',
+    accessToken: 'accessToken',
+    refreshToken: 'refreshToken',
+    accessTokenExpiresAt: 'accessTokenExpiresAt',
+    refreshTokenExpiresAt: 'refreshTokenExpiresAt',
     scope: 'scope',
-    id_token: 'id_token',
-    session_state: 'session_state'
+    idToken: 'idToken',
+    password: 'password',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
 };
 export const SessionScalarFieldEnum = {
     id: 'id',
-    sessionToken: 'sessionToken',
     userId: 'userId',
-    expires: 'expires'
-};
-export const VerificationTokenScalarFieldEnum = {
-    identifier: 'identifier',
     token: 'token',
-    expires: 'expires'
+    expiresAt: 'expiresAt',
+    ipAddress: 'ipAddress',
+    userAgent: 'userAgent',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+};
+export const VerificationScalarFieldEnum = {
+    id: 'id',
+    identifier: 'identifier',
+    value: 'value',
+    expiresAt: 'expiresAt',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
 };
 export const CategoryScalarFieldEnum = {
     id: 'id',

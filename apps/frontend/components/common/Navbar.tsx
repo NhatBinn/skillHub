@@ -1,11 +1,7 @@
 import Link from "next/link";
 import { Container } from "../layout/container";
-import { Button } from "../ui/button";
-import { auth } from "@/auth";
 
 async function Navbar() {
-  const session = await auth();
-
   return (
     <header>
       <Container>
@@ -32,19 +28,19 @@ async function Navbar() {
           </ul>
 
           <div className="flex items-center gap-3 ml-auto">
-            <Button
-              variant="outline"
-              size="lg"
-              className={"text-[18px] font-semibold text-[#334155]"}
+            <Link
+              href="/login"
+              className="rounded-xl border border-slate-300 bg-white px-5 py-2 text-base font-semibold text-slate-700 transition-all duration-200 active:scale-[0.98] hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900"
             >
               Đăng nhập
-            </Button>
-            <Button
-              size="lg"
-              className={"text-[18px] font-semibold bg-[#EF5B2C]"}
+            </Link>
+
+            <Link
+              href="/register"
+              className="rounded-xl bg-orange-500 px-5 py-2 text-base font-semibold text-white transition-all duration-200 active:scale-[0.98] hover:bg-orange-600 hover:shadow-md"
             >
               Đăng ký
-            </Button>
+            </Link>
           </div>
         </nav>
       </Container>

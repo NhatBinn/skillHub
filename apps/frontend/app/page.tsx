@@ -1,13 +1,13 @@
-import { auth } from "@/auth";
-import CourseList from "@/components/common/CourseCard";
-import HeroSection from "@/components/common/HeroSection";
-import ReviewHighlight from "@/components/common/ReviewHighlight";
+import CourseList from "@/components/Course/CourseCard";
+import HeroSection from "@/components/common/Root/HeroSection";
+import ReviewHighlight from "@/components/common/Root/ReviewHighlight";
+import { auth } from "@/lib/auth";
 import { prisma } from "@skillhub/database";
 import Link from "next/link";
 
 export default async function Home() {
   const session = await auth();
-  
+
   const coursesList = await prisma.course.findMany({
     where: {
       published: true,
@@ -24,7 +24,7 @@ export default async function Home() {
 
   const categories = await prisma.category.findMany({
     orderBy: {
-      name: 'asc',
+      name: "asc",
     },
     take: 8,
   });
@@ -42,7 +42,7 @@ export default async function Home() {
             <Link
               href={`/courses?category=${crs.slug}`}
               key={crs.id}
-              className="inline-flex items-center rounded-full border border-slate-200 bg-[#4F46E5] px-4 py-2 text-[14px] text-white font-medium whitespace-nowrap transition-colors hover:bg-slate-100"
+              className="inline-flex items-center rounded-full border border-slate-200 bg-[#645de6] px-4 py-2 text-[14px] text-white font-medium whitespace-nowrap transition-colors hover:bg-[#7974db]"
             >
               <span>{crs.name}</span>
             </Link>
@@ -53,20 +53,19 @@ export default async function Home() {
       <div className="mt-10">
         <div className="flex justify-between items-center mb-3">
           <h2 className="text-[32px] font-bold">Khóa học nổi bật</h2>
-          <Link
-              href={`/courses`}
-              className="text-sm text-[#64748B]"
-          >
+          <Link href={`/courses`} className="text-sm text-[#64748B]">
             Xem tất cả →
-            </Link>
+          </Link>
         </div>
         <CourseList coursesList={coursesList} />
       </div>
 
       <div className="mt-10">
-        <h2 className="text-[32px] font-bold mb-3">Học viên nói gì về SkillHub</h2>
+        <h2 className="text-[32px] font-bold mb-3">
+          Học viên nói gì về SkillHub
+        </h2>
         {/* hightline */}
-        <ReviewHighlight/>
+        <ReviewHighlight />
       </div>
     </>
   );

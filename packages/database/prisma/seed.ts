@@ -36,6 +36,9 @@ async function seed() {
         avatarUrl: "https://example.com/avatars/john.jpg",
         bio: "Experienced software engineer and instructor.",
         role: "instructor",
+        emailVerified: false,
+        createdAt: new Date("2026-01-15T08:00:00.000Z"),
+        updatedAt: new Date("2026-06-20T10:30:00.000Z"),
       },
     }),
     prisma.user.upsert({
@@ -48,6 +51,9 @@ async function seed() {
         avatarUrl: "https://example.com/avatars/jane.jpg",
         bio: "Full-stack developer passionate about teaching.",
         role: "instructor",
+        emailVerified: false,
+        createdAt: new Date("2026-02-20T09:00:00.000Z"),
+        updatedAt: new Date("2026-06-18T14:00:00.000Z"),
       },
     }),
     prisma.user.upsert({
@@ -60,6 +66,9 @@ async function seed() {
         avatarUrl: "https://example.com/avatars/alice.jpg",
         bio: "Eager student learning web development.",
         role: "student",
+        emailVerified: false,
+        createdAt: new Date("2026-03-10T10:00:00.000Z"),
+        updatedAt: new Date("2026-06-15T09:00:00.000Z"),
       },
     }),
     prisma.user.upsert({
@@ -72,6 +81,9 @@ async function seed() {
         avatarUrl: "https://example.com/avatars/bob.jpg",
         bio: "Data science enthusiast.",
         role: "student",
+        emailVerified: false,
+        createdAt: new Date("2026-03-25T11:00:00.000Z"),
+        updatedAt: new Date("2026-06-10T08:00:00.000Z"),
       },
     }),
     prisma.user.upsert({
@@ -84,6 +96,9 @@ async function seed() {
         avatarUrl: "https://example.com/avatars/admin.jpg",
         bio: "Platform administrator.",
         role: "admin",
+        emailVerified: false,
+        createdAt: new Date("2026-01-01T00:00:00.000Z"),
+        updatedAt: new Date("2026-07-01T12:00:00.000Z"),
       },
     }),
     prisma.user.upsert({
@@ -96,6 +111,9 @@ async function seed() {
         avatarUrl: "https://example.com/avatars/mike.jpg",
         bio: "Senior DevOps engineer and cloud architect.",
         role: "instructor",
+        emailVerified: false,
+        createdAt: new Date("2026-04-01T08:00:00.000Z"),
+        updatedAt: new Date("2026-06-25T10:00:00.000Z"),
       },
     }),
     prisma.user.upsert({
@@ -108,6 +126,9 @@ async function seed() {
         avatarUrl: "https://example.com/avatars/sarah.jpg",
         bio: "UI/UX designer turned frontend developer.",
         role: "instructor",
+        emailVerified: false,
+        createdAt: new Date("2026-04-10T09:00:00.000Z"),
+        updatedAt: new Date("2026-06-22T11:00:00.000Z"),
       },
     }),
     prisma.user.upsert({
@@ -120,6 +141,9 @@ async function seed() {
         avatarUrl: "https://example.com/avatars/david.jpg",
         bio: "Computer science student exploring AI.",
         role: "student",
+        emailVerified: false,
+        createdAt: new Date("2026-04-15T10:00:00.000Z"),
+        updatedAt: new Date("2026-06-20T09:00:00.000Z"),
       },
     }),
     prisma.user.upsert({
@@ -132,6 +156,9 @@ async function seed() {
         avatarUrl: "https://example.com/avatars/emma.jpg",
         bio: "Marketing professional learning web development.",
         role: "student",
+        emailVerified: false,
+        createdAt: new Date("2026-04-20T11:00:00.000Z"),
+        updatedAt: new Date("2026-06-18T08:00:00.000Z"),
       },
     }),
     prisma.user.upsert({
@@ -144,6 +171,9 @@ async function seed() {
         avatarUrl: "https://example.com/avatars/james.jpg",
         bio: "Backend developer specializing in microservices.",
         role: "instructor",
+        emailVerified: false,
+        createdAt: new Date("2026-05-01T08:00:00.000Z"),
+        updatedAt: new Date("2026-06-15T10:00:00.000Z"),
       },
     }),
     prisma.user.upsert({
@@ -156,6 +186,9 @@ async function seed() {
         avatarUrl: "https://example.com/avatars/olivia.jpg",
         bio: "Mobile app developer learning Flutter and Swift.",
         role: "student",
+        emailVerified: false,
+        createdAt: new Date("2026-05-05T09:00:00.000Z"),
+        updatedAt: new Date("2026-06-12T11:00:00.000Z"),
       },
     }),
     prisma.user.upsert({
@@ -168,6 +201,9 @@ async function seed() {
         avatarUrl: "https://example.com/avatars/liam.jpg",
         bio: "Data analyst transitioning to data engineering.",
         role: "student",
+        emailVerified: false,
+        createdAt: new Date("2026-05-10T10:00:00.000Z"),
+        updatedAt: new Date("2026-06-10T09:00:00.000Z"),
       },
     }),
     prisma.user.upsert({
@@ -180,6 +216,9 @@ async function seed() {
         avatarUrl: "https://example.com/avatars/sophia.jpg",
         bio: "Full-stack developer and tech blogger.",
         role: "instructor",
+        emailVerified: false,
+        createdAt: new Date("2026-05-15T08:00:00.000Z"),
+        updatedAt: new Date("2026-06-08T10:00:00.000Z"),
       },
     }),
     prisma.user.upsert({
@@ -192,6 +231,9 @@ async function seed() {
         avatarUrl: "https://example.com/avatars/ethan.jpg",
         bio: "Cybersecurity enthusiast and penetration tester.",
         role: "student",
+        emailVerified: false,
+        createdAt: new Date("2026-05-20T11:00:00.000Z"),
+        updatedAt: new Date("2026-06-05T08:00:00.000Z"),
       },
     }),
     prisma.user.upsert({
@@ -204,6 +246,9 @@ async function seed() {
         avatarUrl: "https://example.com/avatars/ava.jpg",
         bio: "Product manager learning technical skills.",
         role: "student",
+        emailVerified: false,
+        createdAt: new Date("2026-05-25T09:00:00.000Z"),
+        updatedAt: new Date("2026-06-03T10:00:00.000Z"),
       },
     }),
     prisma.user.upsert({
@@ -216,6 +261,9 @@ async function seed() {
         avatarUrl: "https://example.com/avatars/noah.jpg",
         bio: "Recent graduate looking to break into tech.",
         role: "student",
+        emailVerified: false,
+        createdAt: new Date("2026-06-01T10:00:00.000Z"),
+        updatedAt: new Date("2026-06-01T10:00:00.000Z"),
       },
     }),
     prisma.user.upsert({
@@ -228,6 +276,9 @@ async function seed() {
         avatarUrl: "https://example.com/avatars/mia.jpg",
         bio: "Experienced instructor teaching cloud technologies.",
         role: "instructor",
+        emailVerified: false,
+        createdAt: new Date("2026-06-05T08:00:00.000Z"),
+        updatedAt: new Date("2026-06-05T08:00:00.000Z"),
       },
     }),
     prisma.user.upsert({
@@ -240,6 +291,9 @@ async function seed() {
         avatarUrl: "https://example.com/avatars/lucas.jpg",
         bio: "Game developer learning AI and machine learning.",
         role: "student",
+        emailVerified: false,
+        createdAt: new Date("2026-06-10T09:00:00.000Z"),
+        updatedAt: new Date("2026-06-10T09:00:00.000Z"),
       },
     }),
     prisma.user.upsert({
@@ -252,6 +306,9 @@ async function seed() {
         avatarUrl: "https://example.com/avatars/isabella.jpg",
         bio: "Freelance web designer expanding into development.",
         role: "student",
+        emailVerified: false,
+        createdAt: new Date("2026-06-15T10:00:00.000Z"),
+        updatedAt: new Date("2026-06-15T10:00:00.000Z"),
       },
     }),
   ]);

@@ -234,7 +234,7 @@ export declare const ModelName: {
     readonly User: "User";
     readonly Account: "Account";
     readonly Session: "Session";
-    readonly VerificationToken: "VerificationToken";
+    readonly Verification: "Verification";
     readonly Category: "Category";
     readonly Tag: "Tag";
     readonly CourseTag: "CourseTag";
@@ -263,7 +263,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         omit: GlobalOmitOptions;
     };
     meta: {
-        modelProps: "user" | "account" | "session" | "verificationToken" | "category" | "tag" | "courseTag" | "course" | "lesson" | "enrollment" | "lessonProgress" | "payment" | "coupon" | "review" | "forumPost" | "comment" | "chatMessage" | "notification" | "file" | "auditLog";
+        modelProps: "user" | "account" | "session" | "verification" | "category" | "tag" | "courseTag" | "course" | "lesson" | "enrollment" | "lessonProgress" | "payment" | "coupon" | "review" | "forumPost" | "comment" | "chatMessage" | "notification" | "file" | "auditLog";
         txIsolationLevel: TransactionIsolationLevel;
     };
     model: {
@@ -489,77 +489,77 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
                 };
             };
         };
-        VerificationToken: {
-            payload: Prisma.$VerificationTokenPayload<ExtArgs>;
-            fields: Prisma.VerificationTokenFieldRefs;
+        Verification: {
+            payload: Prisma.$VerificationPayload<ExtArgs>;
+            fields: Prisma.VerificationFieldRefs;
             operations: {
                 findUnique: {
-                    args: Prisma.VerificationTokenFindUniqueArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$VerificationTokenPayload> | null;
+                    args: Prisma.VerificationFindUniqueArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$VerificationPayload> | null;
                 };
                 findUniqueOrThrow: {
-                    args: Prisma.VerificationTokenFindUniqueOrThrowArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$VerificationTokenPayload>;
+                    args: Prisma.VerificationFindUniqueOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$VerificationPayload>;
                 };
                 findFirst: {
-                    args: Prisma.VerificationTokenFindFirstArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$VerificationTokenPayload> | null;
+                    args: Prisma.VerificationFindFirstArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$VerificationPayload> | null;
                 };
                 findFirstOrThrow: {
-                    args: Prisma.VerificationTokenFindFirstOrThrowArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$VerificationTokenPayload>;
+                    args: Prisma.VerificationFindFirstOrThrowArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$VerificationPayload>;
                 };
                 findMany: {
-                    args: Prisma.VerificationTokenFindManyArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$VerificationTokenPayload>[];
+                    args: Prisma.VerificationFindManyArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$VerificationPayload>[];
                 };
                 create: {
-                    args: Prisma.VerificationTokenCreateArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$VerificationTokenPayload>;
+                    args: Prisma.VerificationCreateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$VerificationPayload>;
                 };
                 createMany: {
-                    args: Prisma.VerificationTokenCreateManyArgs<ExtArgs>;
+                    args: Prisma.VerificationCreateManyArgs<ExtArgs>;
                     result: BatchPayload;
                 };
                 createManyAndReturn: {
-                    args: Prisma.VerificationTokenCreateManyAndReturnArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$VerificationTokenPayload>[];
+                    args: Prisma.VerificationCreateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$VerificationPayload>[];
                 };
                 delete: {
-                    args: Prisma.VerificationTokenDeleteArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$VerificationTokenPayload>;
+                    args: Prisma.VerificationDeleteArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$VerificationPayload>;
                 };
                 update: {
-                    args: Prisma.VerificationTokenUpdateArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$VerificationTokenPayload>;
+                    args: Prisma.VerificationUpdateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$VerificationPayload>;
                 };
                 deleteMany: {
-                    args: Prisma.VerificationTokenDeleteManyArgs<ExtArgs>;
+                    args: Prisma.VerificationDeleteManyArgs<ExtArgs>;
                     result: BatchPayload;
                 };
                 updateMany: {
-                    args: Prisma.VerificationTokenUpdateManyArgs<ExtArgs>;
+                    args: Prisma.VerificationUpdateManyArgs<ExtArgs>;
                     result: BatchPayload;
                 };
                 updateManyAndReturn: {
-                    args: Prisma.VerificationTokenUpdateManyAndReturnArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$VerificationTokenPayload>[];
+                    args: Prisma.VerificationUpdateManyAndReturnArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$VerificationPayload>[];
                 };
                 upsert: {
-                    args: Prisma.VerificationTokenUpsertArgs<ExtArgs>;
-                    result: runtime.Types.Utils.PayloadToResult<Prisma.$VerificationTokenPayload>;
+                    args: Prisma.VerificationUpsertArgs<ExtArgs>;
+                    result: runtime.Types.Utils.PayloadToResult<Prisma.$VerificationPayload>;
                 };
                 aggregate: {
-                    args: Prisma.VerificationTokenAggregateArgs<ExtArgs>;
-                    result: runtime.Types.Utils.Optional<Prisma.AggregateVerificationToken>;
+                    args: Prisma.VerificationAggregateArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.AggregateVerification>;
                 };
                 groupBy: {
-                    args: Prisma.VerificationTokenGroupByArgs<ExtArgs>;
-                    result: runtime.Types.Utils.Optional<Prisma.VerificationTokenGroupByOutputType>[];
+                    args: Prisma.VerificationGroupByArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.VerificationGroupByOutputType>[];
                 };
                 count: {
-                    args: Prisma.VerificationTokenCountArgs<ExtArgs>;
-                    result: runtime.Types.Utils.Optional<Prisma.VerificationTokenCountAggregateOutputType> | number;
+                    args: Prisma.VerificationCountArgs<ExtArgs>;
+                    result: runtime.Types.Utils.Optional<Prisma.VerificationCountAggregateOutputType> | number;
                 };
             };
         };
@@ -1798,31 +1798,39 @@ export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof User
 export declare const AccountScalarFieldEnum: {
     readonly id: "id";
     readonly userId: "userId";
-    readonly type: "type";
-    readonly provider: "provider";
-    readonly providerAccountId: "providerAccountId";
-    readonly refresh_token: "refresh_token";
-    readonly access_token: "access_token";
-    readonly expires_at: "expires_at";
-    readonly token_type: "token_type";
+    readonly accountId: "accountId";
+    readonly providerId: "providerId";
+    readonly accessToken: "accessToken";
+    readonly refreshToken: "refreshToken";
+    readonly accessTokenExpiresAt: "accessTokenExpiresAt";
+    readonly refreshTokenExpiresAt: "refreshTokenExpiresAt";
     readonly scope: "scope";
-    readonly id_token: "id_token";
-    readonly session_state: "session_state";
+    readonly idToken: "idToken";
+    readonly password: "password";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
 };
 export type AccountScalarFieldEnum = (typeof AccountScalarFieldEnum)[keyof typeof AccountScalarFieldEnum];
 export declare const SessionScalarFieldEnum: {
     readonly id: "id";
-    readonly sessionToken: "sessionToken";
     readonly userId: "userId";
-    readonly expires: "expires";
+    readonly token: "token";
+    readonly expiresAt: "expiresAt";
+    readonly ipAddress: "ipAddress";
+    readonly userAgent: "userAgent";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
 };
 export type SessionScalarFieldEnum = (typeof SessionScalarFieldEnum)[keyof typeof SessionScalarFieldEnum];
-export declare const VerificationTokenScalarFieldEnum: {
+export declare const VerificationScalarFieldEnum: {
+    readonly id: "id";
     readonly identifier: "identifier";
-    readonly token: "token";
-    readonly expires: "expires";
+    readonly value: "value";
+    readonly expiresAt: "expiresAt";
+    readonly createdAt: "createdAt";
+    readonly updatedAt: "updatedAt";
 };
-export type VerificationTokenScalarFieldEnum = (typeof VerificationTokenScalarFieldEnum)[keyof typeof VerificationTokenScalarFieldEnum];
+export type VerificationScalarFieldEnum = (typeof VerificationScalarFieldEnum)[keyof typeof VerificationScalarFieldEnum];
 export declare const CategoryScalarFieldEnum: {
     readonly id: "id";
     readonly name: "name";
@@ -1996,6 +2004,10 @@ export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 
  */
 export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>;
 /**
+ * Reference to a field of type 'Boolean'
+ */
+export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>;
+/**
  * Reference to a field of type 'DateTime'
  */
 export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>;
@@ -2011,14 +2023,6 @@ export type EnumRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel
  * Reference to a field of type 'Role[]'
  */
 export type ListEnumRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Role[]'>;
-/**
- * Reference to a field of type 'Int'
- */
-export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>;
-/**
- * Reference to a field of type 'Int[]'
- */
-export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>;
 /**
  * Reference to a field of type 'Decimal'
  */
@@ -2036,9 +2040,13 @@ export type EnumLevelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaMode
  */
 export type ListEnumLevelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Level[]'>;
 /**
- * Reference to a field of type 'Boolean'
+ * Reference to a field of type 'Int'
  */
-export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>;
+export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>;
+/**
+ * Reference to a field of type 'Int[]'
+ */
+export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>;
 /**
  * Reference to a field of type 'Status'
  */
@@ -2183,7 +2191,7 @@ export type GlobalOmitConfig = {
     user?: Prisma.UserOmit;
     account?: Prisma.AccountOmit;
     session?: Prisma.SessionOmit;
-    verificationToken?: Prisma.VerificationTokenOmit;
+    verification?: Prisma.VerificationOmit;
     category?: Prisma.CategoryOmit;
     tag?: Prisma.TagOmit;
     courseTag?: Prisma.CourseTagOmit;
