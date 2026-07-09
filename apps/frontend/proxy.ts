@@ -4,15 +4,15 @@ import { auth } from "@/auth";
 export const proxy = auth((req) => {
   console.log(req.auth);
   
-  const isLogin = !!req.auth;
-  const isAuthPage =
-    req.nextUrl.pathname.startsWith("/sign-in") ||
-    req.nextUrl.pathname.startsWith("/sign-up");
+  // const isLogin = !!req.auth;
+  // const isAuthPage =
+  //   req.nextUrl.pathname.startsWith("/sign-in") ||
+  //   req.nextUrl.pathname.startsWith("/sign-up");
 
-  if (!isLogin && !isAuthPage)
-    return NextResponse.redirect(new URL("/sign-in", req.url));
-  else if (isLogin && isAuthPage)
-    return NextResponse.redirect(new URL("/", req.url));
+  // if (!isLogin && !isAuthPage)
+  //   return NextResponse.redirect(new URL("/sign-in", req.url));
+  // else if (isLogin && isAuthPage)
+  //   return NextResponse.redirect(new URL("/", req.url));
 
   return NextResponse.next();
 });

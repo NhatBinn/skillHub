@@ -12,3 +12,27 @@ export const Role = {
     instructor: 'instructor',
     admin: 'admin'
 };
+export const Level = {
+    beginner: 'beginner',
+    intermediate: 'intermediate',
+    advanced: 'advanced'
+};
+export const Status = {
+    pending: 'pending',
+    succeeded: 'succeeded',
+    failed: 'failed',
+    refunded: 'refunded'
+};
+export const NotificationType = {
+    enrollment: 'enrollment',
+    payment: 'payment',
+    comment_reply: 'comment_reply',
+    new_lesson: 'new_lesson',
+    system: 'system'
+};
+export const FileType = {
+    avatar: 'avatar',
+    thumbnail: 'thumbnail',
+    video: 'video',
+    attachment: 'attachment'
+};

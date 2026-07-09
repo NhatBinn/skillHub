@@ -30,7 +30,7 @@ model User {
   enrollments   Enrollment[]
   payments      Payment[]
   reviews       Review[]
-  forumPosts    ForumPosts[]
+  forumPost     ForumPost[]
   comments      Comment[]
   chatMessages  ChatMessage[]
   notifications Notification[]
@@ -108,6 +108,7 @@ model CourseTag {
   tag      Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
 
   @@id([courseId, tagId])
+  @@index([tagId])
   @@map("course_tags")
 }
 
@@ -130,7 +131,7 @@ model Course {
   enrollments  Enrollment[]
   payments     Payment[]
   reviews      Review[]
-  forumPosts   ForumPosts[]
+  forumPost    ForumPost[]
   chatMessages ChatMessage[]
   courseTags   CourseTag[]
 
@@ -173,7 +174,6 @@ model Enrollment {
   lessonProgresses LessonProgress[]
 
   @@unique([userId, courseId])
-  @@index([userId])
   @@index([courseId])
   @@map("enrollments")
 }
@@ -190,7 +190,6 @@ model LessonProgress {
   lesson          Lesson     @relation(fields: [lessonId], references: [id], onDelete: Cascade)
 
   @@unique([enrollmentId, lessonId])
-  @@index([enrollmentId, lessonId])
   @@map("lesson_progress")
 }
 
@@ -205,7 +204,7 @@ model Payment {
   couponId        String?  @map("coupon_id")
   coupon          Coupon?  @relation(fields: [couponId], references: [id], onDelete: Restrict)
   status          Status
-  stripeSessionId String?  @map("stripe_session_id")
+  stripeSessionId String?  @unique @map("stripe_session_id")
   createdAt       DateTime @default(now())
 
   @@index([userId, couponId, courseId])
@@ -248,14 +247,14 @@ model Review {
   @@map("reviews")
 }
 
-model ForumPosts {
+model ForumPost {
   id        String    @id @default(cuid())
   title     String
   content   String    @db.Text
   userId    String    @map("user_id")
   user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   courseId  String?   @map("course_id")
-  course    Course?   @relation(fields: [courseId], references: [id], onDelete: Restrict)
+  course    Course?   @relation(fields: [courseId], references: [id], onDelete: SetNull)
   createdAt DateTime  @default(now())
   comments  Comment[]
 
@@ -268,9 +267,9 @@ model Comment {
   id        String      @id @default(cuid())
   content   String      @db.Text
   userId    String      @map("user_id")
-  user      User        @relation(fields: [userId], references: [id], onDelete: Restrict)
+  user      User        @relation(fields: [userId], references: [id], onDelete: Cascade)
   postId    String?     @map("post_id")
-  post      ForumPosts? @relation(fields: [postId], references: [id], onDelete: Cascade)
+  post      ForumPost?  @relation(fields: [postId], references: [id], onDelete: Cascade)
   lessonId  String?     @map("lesson_id")
   lesson    Lesson?     @relation(fields: [lessonId], references: [id], onDelete: SetNull)
   parentId  String?     @map("parent_id")

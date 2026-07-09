@@ -161,6 +161,182 @@ export interface PrismaClient<in LogOpts extends Prisma.LogLevel = never, in out
     get verificationToken(): Prisma.VerificationTokenDelegate<ExtArgs, {
         omit: OmitOpts;
     }>;
+    /**
+     * `prisma.category`: Exposes CRUD operations for the **Category** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more Categories
+      * const categories = await prisma.category.findMany()
+      * ```
+      */
+    get category(): Prisma.CategoryDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.tag`: Exposes CRUD operations for the **Tag** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more Tags
+      * const tags = await prisma.tag.findMany()
+      * ```
+      */
+    get tag(): Prisma.TagDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.courseTag`: Exposes CRUD operations for the **CourseTag** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more CourseTags
+      * const courseTags = await prisma.courseTag.findMany()
+      * ```
+      */
+    get courseTag(): Prisma.CourseTagDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.course`: Exposes CRUD operations for the **Course** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more Courses
+      * const courses = await prisma.course.findMany()
+      * ```
+      */
+    get course(): Prisma.CourseDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.lesson`: Exposes CRUD operations for the **Lesson** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more Lessons
+      * const lessons = await prisma.lesson.findMany()
+      * ```
+      */
+    get lesson(): Prisma.LessonDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.enrollment`: Exposes CRUD operations for the **Enrollment** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more Enrollments
+      * const enrollments = await prisma.enrollment.findMany()
+      * ```
+      */
+    get enrollment(): Prisma.EnrollmentDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.lessonProgress`: Exposes CRUD operations for the **LessonProgress** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more LessonProgresses
+      * const lessonProgresses = await prisma.lessonProgress.findMany()
+      * ```
+      */
+    get lessonProgress(): Prisma.LessonProgressDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.payment`: Exposes CRUD operations for the **Payment** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more Payments
+      * const payments = await prisma.payment.findMany()
+      * ```
+      */
+    get payment(): Prisma.PaymentDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.coupon`: Exposes CRUD operations for the **Coupon** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more Coupons
+      * const coupons = await prisma.coupon.findMany()
+      * ```
+      */
+    get coupon(): Prisma.CouponDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.review`: Exposes CRUD operations for the **Review** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more Reviews
+      * const reviews = await prisma.review.findMany()
+      * ```
+      */
+    get review(): Prisma.ReviewDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.forumPost`: Exposes CRUD operations for the **ForumPost** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more ForumPosts
+      * const forumPosts = await prisma.forumPost.findMany()
+      * ```
+      */
+    get forumPost(): Prisma.ForumPostDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.comment`: Exposes CRUD operations for the **Comment** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more Comments
+      * const comments = await prisma.comment.findMany()
+      * ```
+      */
+    get comment(): Prisma.CommentDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.chatMessage`: Exposes CRUD operations for the **ChatMessage** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more ChatMessages
+      * const chatMessages = await prisma.chatMessage.findMany()
+      * ```
+      */
+    get chatMessage(): Prisma.ChatMessageDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.notification`: Exposes CRUD operations for the **Notification** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more Notifications
+      * const notifications = await prisma.notification.findMany()
+      * ```
+      */
+    get notification(): Prisma.NotificationDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.file`: Exposes CRUD operations for the **File** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more Files
+      * const files = await prisma.file.findMany()
+      * ```
+      */
+    get file(): Prisma.FileDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
+    /**
+     * `prisma.auditLog`: Exposes CRUD operations for the **AuditLog** model.
+      * Example usage:
+      * ```ts
+      * // Fetch zero or more AuditLogs
+      * const auditLogs = await prisma.auditLog.findMany()
+      * ```
+      */
+    get auditLog(): Prisma.AuditLogDelegate<ExtArgs, {
+        omit: OmitOpts;
+    }>;
 }
 export declare function getPrismaClientClass(): PrismaClientConstructor;
 //# sourceMappingURL=class.d.ts.map

@@ -70,7 +70,23 @@ export const ModelName = {
     User: 'User',
     Account: 'Account',
     Session: 'Session',
-    VerificationToken: 'VerificationToken'
+    VerificationToken: 'VerificationToken',
+    Category: 'Category',
+    Tag: 'Tag',
+    CourseTag: 'CourseTag',
+    Course: 'Course',
+    Lesson: 'Lesson',
+    Enrollment: 'Enrollment',
+    LessonProgress: 'LessonProgress',
+    Payment: 'Payment',
+    Coupon: 'Coupon',
+    Review: 'Review',
+    ForumPost: 'ForumPost',
+    Comment: 'Comment',
+    ChatMessage: 'ChatMessage',
+    Notification: 'Notification',
+    File: 'File',
+    AuditLog: 'AuditLog'
 };
 /**
  * Enums
@@ -85,11 +101,12 @@ export const UserScalarFieldEnum = {
     id: 'id',
     name: 'name',
     password: 'password',
+    email: 'email',
     emailVerified: 'emailVerified',
     image: 'image',
     avatarUrl: 'avatarUrl',
     bio: 'bio',
-    createAt: 'createAt',
+    createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     role: 'role'
 };
@@ -117,6 +134,136 @@ export const VerificationTokenScalarFieldEnum = {
     identifier: 'identifier',
     token: 'token',
     expires: 'expires'
+};
+export const CategoryScalarFieldEnum = {
+    id: 'id',
+    name: 'name',
+    slug: 'slug'
+};
+export const TagScalarFieldEnum = {
+    id: 'id',
+    name: 'name'
+};
+export const CourseTagScalarFieldEnum = {
+    courseId: 'courseId',
+    tagId: 'tagId'
+};
+export const CourseScalarFieldEnum = {
+    id: 'id',
+    title: 'title',
+    slug: 'slug',
+    description: 'description',
+    thumbnail: 'thumbnail',
+    price: 'price',
+    level: 'level',
+    published: 'published',
+    instructorId: 'instructorId',
+    categoryId: 'categoryId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+};
+export const LessonScalarFieldEnum = {
+    id: 'id',
+    title: 'title',
+    order: 'order',
+    videoUrl: 'videoUrl',
+    content: 'content',
+    durationSec: 'durationSec',
+    isFreePreview: 'isFreePreview',
+    courseId: 'courseId'
+};
+export const EnrollmentScalarFieldEnum = {
+    id: 'id',
+    enrolledAt: 'enrolledAt',
+    userId: 'userId',
+    courseId: 'courseId'
+};
+export const LessonProgressScalarFieldEnum = {
+    id: 'id',
+    completed: 'completed',
+    lastPositionSec: 'lastPositionSec',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    enrollmentId: 'enrollmentId',
+    lessonId: 'lessonId'
+};
+export const PaymentScalarFieldEnum = {
+    id: 'id',
+    amount: 'amount',
+    updatedAt: 'updatedAt',
+    userId: 'userId',
+    courseId: 'courseId',
+    couponId: 'couponId',
+    status: 'status',
+    stripeSessionId: 'stripeSessionId',
+    createdAt: 'createdAt'
+};
+export const CouponScalarFieldEnum = {
+    id: 'id',
+    code: 'code',
+    percentOff: 'percentOff',
+    amountOff: 'amountOff',
+    expiresAt: 'expiresAt',
+    maxUses: 'maxUses',
+    usedCount: 'usedCount'
+};
+export const ReviewScalarFieldEnum = {
+    id: 'id',
+    rating: 'rating',
+    comment: 'comment',
+    userId: 'userId',
+    courseId: 'courseId',
+    createdAt: 'createdAt'
+};
+export const ForumPostScalarFieldEnum = {
+    id: 'id',
+    title: 'title',
+    content: 'content',
+    userId: 'userId',
+    courseId: 'courseId',
+    createdAt: 'createdAt'
+};
+export const CommentScalarFieldEnum = {
+    id: 'id',
+    content: 'content',
+    userId: 'userId',
+    postId: 'postId',
+    lessonId: 'lessonId',
+    parentId: 'parentId',
+    createdAt: 'createdAt'
+};
+export const ChatMessageScalarFieldEnum = {
+    id: 'id',
+    content: 'content',
+    courseId: 'courseId',
+    userId: 'userId',
+    createdAt: 'createdAt'
+};
+export const NotificationScalarFieldEnum = {
+    id: 'id',
+    userId: 'userId',
+    type: 'type',
+    title: 'title',
+    body: 'body',
+    link: 'link',
+    isRead: 'isRead',
+    createdAt: 'createdAt'
+};
+export const FileScalarFieldEnum = {
+    id: 'id',
+    userId: 'userId',
+    url: 'url',
+    type: 'type',
+    sizeBytes: 'sizeBytes',
+    createdAt: 'createdAt'
+};
+export const AuditLogScalarFieldEnum = {
+    id: 'id',
+    userId: 'userId',
+    action: 'action',
+    targetType: 'targetType',
+    targetId: 'targetId',
+    createdAt: 'createdAt'
 };
 export const SortOrder = {
     asc: 'asc',

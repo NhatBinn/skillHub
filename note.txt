@@ -1,0 +1,11 @@
+// ─────────────────────────────────────────────────────────────
+// Ghi chú — Cần validate ở tầng service/API (không thể fix bằng Prisma schema thuần):
+//
+// 1. Comment.postId / lessonId không loại trừ lẫn nhau:
+//    Một comment có thể vừa có postId vừa có lessonId, nhưng logic nghiệp vụ yêu cầu
+//    chỉ được phép có một trong hai. Cần kiểm tra ở service trước khi tạo/update.
+//
+// 2. LessonProgress.lesson không đảm bảo cùng course với enrollment:
+//    Không có ràng buộc nào đảm bảo lessonId thuộc về cùng course với enrollmentId.
+//    Cần kiểm tra ở service khi tạo LessonProgress.
+// ─────────────────────────────────────────────────────────────

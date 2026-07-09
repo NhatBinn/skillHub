@@ -54,7 +54,23 @@ export const ModelName = {
   User: 'User',
   Account: 'Account',
   Session: 'Session',
-  VerificationToken: 'VerificationToken'
+  VerificationToken: 'VerificationToken',
+  Category: 'Category',
+  Tag: 'Tag',
+  CourseTag: 'CourseTag',
+  Course: 'Course',
+  Lesson: 'Lesson',
+  Enrollment: 'Enrollment',
+  LessonProgress: 'LessonProgress',
+  Payment: 'Payment',
+  Coupon: 'Coupon',
+  Review: 'Review',
+  ForumPost: 'ForumPost',
+  Comment: 'Comment',
+  ChatMessage: 'ChatMessage',
+  Notification: 'Notification',
+  File: 'File',
+  AuditLog: 'AuditLog'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -77,11 +93,12 @@ export const UserScalarFieldEnum = {
   id: 'id',
   name: 'name',
   password: 'password',
+  email: 'email',
   emailVerified: 'emailVerified',
   image: 'image',
   avatarUrl: 'avatarUrl',
   bio: 'bio',
-  createAt: 'createAt',
+  createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   role: 'role'
 } as const
@@ -124,6 +141,200 @@ export const VerificationTokenScalarFieldEnum = {
 } as const
 
 export type VerificationTokenScalarFieldEnum = (typeof VerificationTokenScalarFieldEnum)[keyof typeof VerificationTokenScalarFieldEnum]
+
+
+export const CategoryScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  slug: 'slug'
+} as const
+
+export type CategoryScalarFieldEnum = (typeof CategoryScalarFieldEnum)[keyof typeof CategoryScalarFieldEnum]
+
+
+export const TagScalarFieldEnum = {
+  id: 'id',
+  name: 'name'
+} as const
+
+export type TagScalarFieldEnum = (typeof TagScalarFieldEnum)[keyof typeof TagScalarFieldEnum]
+
+
+export const CourseTagScalarFieldEnum = {
+  courseId: 'courseId',
+  tagId: 'tagId'
+} as const
+
+export type CourseTagScalarFieldEnum = (typeof CourseTagScalarFieldEnum)[keyof typeof CourseTagScalarFieldEnum]
+
+
+export const CourseScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  slug: 'slug',
+  description: 'description',
+  thumbnail: 'thumbnail',
+  price: 'price',
+  level: 'level',
+  published: 'published',
+  instructorId: 'instructorId',
+  categoryId: 'categoryId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type CourseScalarFieldEnum = (typeof CourseScalarFieldEnum)[keyof typeof CourseScalarFieldEnum]
+
+
+export const LessonScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  order: 'order',
+  videoUrl: 'videoUrl',
+  content: 'content',
+  durationSec: 'durationSec',
+  isFreePreview: 'isFreePreview',
+  courseId: 'courseId'
+} as const
+
+export type LessonScalarFieldEnum = (typeof LessonScalarFieldEnum)[keyof typeof LessonScalarFieldEnum]
+
+
+export const EnrollmentScalarFieldEnum = {
+  id: 'id',
+  enrolledAt: 'enrolledAt',
+  userId: 'userId',
+  courseId: 'courseId'
+} as const
+
+export type EnrollmentScalarFieldEnum = (typeof EnrollmentScalarFieldEnum)[keyof typeof EnrollmentScalarFieldEnum]
+
+
+export const LessonProgressScalarFieldEnum = {
+  id: 'id',
+  completed: 'completed',
+  lastPositionSec: 'lastPositionSec',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  enrollmentId: 'enrollmentId',
+  lessonId: 'lessonId'
+} as const
+
+export type LessonProgressScalarFieldEnum = (typeof LessonProgressScalarFieldEnum)[keyof typeof LessonProgressScalarFieldEnum]
+
+
+export const PaymentScalarFieldEnum = {
+  id: 'id',
+  amount: 'amount',
+  updatedAt: 'updatedAt',
+  userId: 'userId',
+  courseId: 'courseId',
+  couponId: 'couponId',
+  status: 'status',
+  stripeSessionId: 'stripeSessionId',
+  createdAt: 'createdAt'
+} as const
+
+export type PaymentScalarFieldEnum = (typeof PaymentScalarFieldEnum)[keyof typeof PaymentScalarFieldEnum]
+
+
+export const CouponScalarFieldEnum = {
+  id: 'id',
+  code: 'code',
+  percentOff: 'percentOff',
+  amountOff: 'amountOff',
+  expiresAt: 'expiresAt',
+  maxUses: 'maxUses',
+  usedCount: 'usedCount'
+} as const
+
+export type CouponScalarFieldEnum = (typeof CouponScalarFieldEnum)[keyof typeof CouponScalarFieldEnum]
+
+
+export const ReviewScalarFieldEnum = {
+  id: 'id',
+  rating: 'rating',
+  comment: 'comment',
+  userId: 'userId',
+  courseId: 'courseId',
+  createdAt: 'createdAt'
+} as const
+
+export type ReviewScalarFieldEnum = (typeof ReviewScalarFieldEnum)[keyof typeof ReviewScalarFieldEnum]
+
+
+export const ForumPostScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  content: 'content',
+  userId: 'userId',
+  courseId: 'courseId',
+  createdAt: 'createdAt'
+} as const
+
+export type ForumPostScalarFieldEnum = (typeof ForumPostScalarFieldEnum)[keyof typeof ForumPostScalarFieldEnum]
+
+
+export const CommentScalarFieldEnum = {
+  id: 'id',
+  content: 'content',
+  userId: 'userId',
+  postId: 'postId',
+  lessonId: 'lessonId',
+  parentId: 'parentId',
+  createdAt: 'createdAt'
+} as const
+
+export type CommentScalarFieldEnum = (typeof CommentScalarFieldEnum)[keyof typeof CommentScalarFieldEnum]
+
+
+export const ChatMessageScalarFieldEnum = {
+  id: 'id',
+  content: 'content',
+  courseId: 'courseId',
+  userId: 'userId',
+  createdAt: 'createdAt'
+} as const
+
+export type ChatMessageScalarFieldEnum = (typeof ChatMessageScalarFieldEnum)[keyof typeof ChatMessageScalarFieldEnum]
+
+
+export const NotificationScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  type: 'type',
+  title: 'title',
+  body: 'body',
+  link: 'link',
+  isRead: 'isRead',
+  createdAt: 'createdAt'
+} as const
+
+export type NotificationScalarFieldEnum = (typeof NotificationScalarFieldEnum)[keyof typeof NotificationScalarFieldEnum]
+
+
+export const FileScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  url: 'url',
+  type: 'type',
+  sizeBytes: 'sizeBytes',
+  createdAt: 'createdAt'
+} as const
+
+export type FileScalarFieldEnum = (typeof FileScalarFieldEnum)[keyof typeof FileScalarFieldEnum]
+
+
+export const AuditLogScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  action: 'action',
+  targetType: 'targetType',
+  targetId: 'targetId',
+  createdAt: 'createdAt'
+} as const
+
+export type AuditLogScalarFieldEnum = (typeof AuditLogScalarFieldEnum)[keyof typeof AuditLogScalarFieldEnum]
 
 
 export const SortOrder = {

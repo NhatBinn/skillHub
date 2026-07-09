@@ -16,3 +16,43 @@ export const Role = {
 } as const
 
 export type Role = (typeof Role)[keyof typeof Role]
+
+
+export const Level = {
+  beginner: 'beginner',
+  intermediate: 'intermediate',
+  advanced: 'advanced'
+} as const
+
+export type Level = (typeof Level)[keyof typeof Level]
+
+
+export const Status = {
+  pending: 'pending',
+  succeeded: 'succeeded',
+  failed: 'failed',
+  refunded: 'refunded'
+} as const
+
+export type Status = (typeof Status)[keyof typeof Status]
+
+
+export const NotificationType = {
+  enrollment: 'enrollment',
+  payment: 'payment',
+  comment_reply: 'comment_reply',
+  new_lesson: 'new_lesson',
+  system: 'system'
+} as const
+
+export type NotificationType = (typeof NotificationType)[keyof typeof NotificationType]
+
+
+export const FileType = {
+  avatar: 'avatar',
+  thumbnail: 'thumbnail',
+  video: 'video',
+  attachment: 'attachment'
+} as const
+
+export type FileType = (typeof FileType)[keyof typeof FileType]
