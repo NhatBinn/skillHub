@@ -1,4 +1,4 @@
-import CourseList from "@/components/Course/CourseCard";
+import CourseList from "@/components/course/CourseCard";
 import { prisma } from "@skillhub/database";
 
 async function CoursesPage({

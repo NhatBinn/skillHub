@@ -1,7 +1,9 @@
-import { auth } from "@/lib/auth";
+import RegisterForm from "@/components/auth/RegisterForm";
 
 export default async function Register() {
-  const session = await auth();
-
-  return <div>Register</div>;
+  return (
+    <>
+      <RegisterForm />
+    </>
+  );
 }

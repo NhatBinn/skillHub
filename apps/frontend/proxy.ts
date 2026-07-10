@@ -1,9 +1,6 @@
-import { auth } from "@/lib/auth";
 import { NextResponse } from "next/server";
 
-export const proxy = auth((req) => {
-  console.log(req.auth);
-
+export const proxy = () => {
   // const isLogin = !!req.auth;
   // const isAuthPage =
   //   req.nextUrl.pathname.startsWith("/sign-in") ||
@@ -15,7 +12,7 @@ export const proxy = auth((req) => {
   //   return NextResponse.redirect(new URL("/", req.url));
 
   return NextResponse.next();
-});
+};
 
 export const config = {
   matcher: [

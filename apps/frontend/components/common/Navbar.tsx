@@ -1,7 +1,17 @@
+"use client";
+
 import Link from "next/link";
 import { Container } from "../layout/container";
+import { useSession } from "@/lib/auth-client";
 
-async function Navbar() {
+function Navbar() {
+  const {
+    data: session,
+    isPending, // loading state
+    error, // error object
+  } = useSession();
+  
+  console.log(session);
   return (
     <header>
       <Container>

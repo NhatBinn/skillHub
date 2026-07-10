@@ -1,13 +1,14 @@
-import CourseList from "@/components/Course/CourseCard";
 import HeroSection from "@/components/common/Root/HeroSection";
 import ReviewHighlight from "@/components/common/Root/ReviewHighlight";
+import CourseList from "@/components/course/CourseCard";
 import { auth } from "@/lib/auth";
 import { prisma } from "@skillhub/database";
+import { log } from "console";
 import Link from "next/link";
 
 export default async function Home() {
-  const session = await auth();
-
+  const session = await auth.api.getSession();
+  console.log(session);
   const coursesList = await prisma.course.findMany({
     where: {
       published: true,
